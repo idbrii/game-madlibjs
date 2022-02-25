@@ -1,0 +1,42 @@
+:root {
+    --color-text:#F3F4F2;
+    --color-bg:#96B4CD;
+    --color-bgcomplete:#A19FAD;
+    --color-highlight:#BA466B;
+    --color-lowlight:#A46446;
+}
+
+body {
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family: 'Lato';
+	font-size: 20px;
+	text-align: center;
+}
+
+.spacer {
+	padding: 20px;
+}
+
+.prompt {
+	font-size: 30px;
+}
+button {
+	margin: 20px;
+}
+input {
+	font-size: 24px;
+}
+
+.prompt input, .prompt button {
+	padding: 5px 20px;
+	vertical-align:middle;
+}
+
+.story {
+	background: var(--color-bgcomplete);
+	color: var(--color-text);
+	font-family: 'Mukta'; 
+	margin: 10px;
+	padding: 10px 20px;
+}
