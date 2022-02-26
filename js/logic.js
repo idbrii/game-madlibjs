@@ -1,4 +1,4 @@
-import { indefiniteArticle, } from './modules/indefinite-article.mjs';
+import { to, } from './modules/conversions.mjs';
 
 const Word = function(kind, name, convert) {
     return {
@@ -6,27 +6,6 @@ const Word = function(kind, name, convert) {
         name: name,
         convert: convert,
     };
-}
-const none = function(str) { return str; }
-
-const a_an = function(str) {
-    if (str.startsWith("another")) {
-        return str;
-    }
-    if (str.startsWith("last")) {
-        return "one "+ str;
-    }
-    const article = indefiniteArticle(str);
-    return `${article} ${str}`;
-}
-
-const title_case = function(str) {
-    return str.replace(
-        /\w\S*/g,
-        function(txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        }
-    );
 }
 
 const Story = function(title, words, text_fn) {
@@ -39,10 +18,10 @@ const Story = function(title, words, text_fn) {
 
 const stories = [
     Story("Appearance", [
-        Word('specific person', 'someone', none),
-        Word('another specific person', 'another', none),
-        Word('job plural', 'police', none),
-        Word('past tense action on something', 'arrested', none),
+        Word('specific person', 'someone', to.none),
+        Word('another specific person', 'another', to.none),
+        Word('job plural', 'police', to.none),
+        Word('past tense action on something', 'arrested', to.none),
     ],
         t => `
 There once was ${t.someone} and the ${t.someone} was being mean to ${t.another}.
@@ -51,14 +30,14 @@ Then the ${t.police} came. And they ${t.arrested} both ${t.someone} and ${t.anot
 
 
     Story("On the Sea", [
-        Word('large object',                        'big_thing', none),
-        Word('verb ending with "ing"',              'shining',   none),
-        Word('amount of effort (best, worst, ...)', 'best',      none),
-        Word('thing',                               'billows',   none),
-        Word('adjective',                           'smooth',    none),
-        Word('another adjective',                   'bright',    none),
-        Word('last adjective',                      'odd',       none),
-        Word('position (start, middle, end, ...)',  'middle',    none),
+        Word('large object',                        'big_thing', to.none),
+        Word('verb ending with "ing"',              'shining',   to.none),
+        Word('amount of effort (best, worst, ...)', 'best',      to.none),
+        Word('thing',                               'billows',   to.none),
+        Word('adjective',                           'smooth',    to.none),
+        Word('another adjective',                   'bright',    to.none),
+        Word('last adjective',                      'odd',       to.none),
+        Word('position (start, middle, end, ...)',  'middle',    to.none),
     ],
         t => `
 The ${t.big_thing} was ${t.shining} on the sea,
@@ -70,12 +49,12 @@ The ${t.middle} of the night.
 `),
 
     Story("Extremes", [
-        Word('noun',                          'wet_thing',   none),
-        Word('plural noun',                   'dry_thing',   none),
-        Word('verb',                          'to_cloud',    none),
-        Word('generic place (beach)',         'where_cloud', none),
-        Word('plural animal',                 'flyers',      none),
-        Word('relative place (above, below)', 'where_flyer', none),
+        Word('noun',                          'wet_thing',   to.none),
+        Word('plural noun',                   'dry_thing',   to.none),
+        Word('verb',                          'to_cloud',    to.none),
+        Word('generic place (beach)',         'where_cloud', to.none),
+        Word('plural animal',                 'flyers',      to.none),
+        Word('relative place (above, below)', 'where_flyer', to.none),
     ],
         t => `
 The ${t.wet_thing} was wet as wet could be,
@@ -88,20 +67,20 @@ There were no ${t.flyers} to fly.
 
 
     Story("The Lamenters", [
-        Word('animal', 'Walrus', none),
-        Word('job', 'Carpenter', none),
-        Word('movement verb (ending with "ing")', 'walking', none),
-        Word('emotional past-tense verb (burbled, grinned)', 'wept', none),
-        Word('plural or unquantified noun', 'sand', none),
-        Word('past tense verb', 'cleared', none),
-        Word('adjective', 'grand', none),
-        Word('count (whole number)', 'seven', none),
-        Word('plural job', 'maids', none),
-        Word('number', 'sevenagain', none),
-        Word('plural tool', 'mops', none),
-        Word('time measurement', 'year', none),
-        Word('adjective', 'clear', none),
-        Word('noun that touches the body', 'tear', none),
+        Word('animal', 'Walrus', to.none),
+        Word('job', 'Carpenter', to.none),
+        Word('movement verb (ending with "ing")', 'walking', to.none),
+        Word('emotional past-tense verb (burbled, grinned)', 'wept', to.none),
+        Word('plural or unquantified noun', 'sand', to.none),
+        Word('past tense verb', 'cleared', to.none),
+        Word('adjective', 'grand', to.none),
+        Word('count (whole number)', 'seven', to.none),
+        Word('plural job', 'maids', to.none),
+        Word('number', 'sevenagain', to.none),
+        Word('plural tool', 'mops', to.none),
+        Word('time measurement', 'year', to.none),
+        Word('adjective', 'clear', to.none),
+        Word('noun that touches the body', 'tear', to.none),
     ],
         t => `
 The ${t.Walrus} and the ${t.Carpenter}
@@ -145,7 +124,7 @@ const showFinal = function () {
 const storeResponse = function() {
     const w = story.words[prompt_index];
     const val = $('input').val();
-    responses[w.name] = w.convert(val);
+    responses[w.name] = to.none(val);
     const has_content = val.length > 0
     if (has_content) {
         $('input').val('');
@@ -157,7 +136,7 @@ const nextPrompt = function() {
     prompt_index += 1;
     if (prompt_index < story.words.length) {
         const w = story.words[prompt_index];
-        $('.requirement').html("Input "+ a_an(w.kind));
+        $('.requirement').html("Input "+ to.a_an(w.kind));
     }
     else {
         showFinal();
