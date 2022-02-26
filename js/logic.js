@@ -1,3 +1,5 @@
+import { indefiniteArticle, } from './modules/indefinite-article.mjs';
+
 const Word = function(kind, name, convert) {
     return {
         kind: kind,
@@ -6,6 +8,18 @@ const Word = function(kind, name, convert) {
     };
 }
 const none = function(str) { return str; }
+
+const a_an = function(str) {
+    if (str.startsWith("another")) {
+        return str;
+    }
+    if (str.startsWith("last")) {
+        return "one "+ str;
+    }
+    const article = indefiniteArticle(str);
+    return `${article} ${str}`;
+}
+
 const title_case = function(str) {
     return str.replace(
         /\w\S*/g,
@@ -130,7 +144,7 @@ const nextPrompt = function() {
     prompt_index += 1;
     if (prompt_index < story.words.length) {
         const w = story.words[prompt_index];
-        $('.requirement').html("Provide a "+ w.kind);
+        $('.requirement').html("Provide "+ a_an(w.kind));
     }
     else {
         showFinal();

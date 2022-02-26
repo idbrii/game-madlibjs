@@ -24,7 +24,7 @@
  * THE SOFTWARE. 
  */ 
 
-window.indefiniteArticle = function(phrase) {
+const indefiniteArticle = function(phrase) {
 
     // Getting the first word 
     var match = /\w+/.exec(phrase);
@@ -55,7 +55,7 @@ window.indefiniteArticle = function(phrase) {
     }
 
     // Special cases where a word that begins with a vowel should be preceeded by 'a'
-    regexes = [/^e[uw]/, /^onc?e\b/, /^uni([^nmd]|mo)/, /^u[bcfhjkqrst][aeiou]/]
+    const regexes = [/^e[uw]/, /^onc?e\b/, /^uni([^nmd]|mo)/, /^u[bcfhjkqrst][aeiou]/]
     for (var i in regexes) {
         if (l_word.match(regexes[i]))
             return "a"
@@ -82,3 +82,5 @@ window.indefiniteArticle = function(phrase) {
 
     return "a";
 }
+
+export { indefiniteArticle, }
