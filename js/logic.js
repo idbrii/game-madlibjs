@@ -24,15 +24,22 @@ const Story = function(words, text_fn) {
 
 const stories = [
     Story([
-        Word('large object',                          'big_thing',   none),
+        Word('large object',                        'big_thing', none),
+        Word('verb ending with "ing"',              'shining',   none),
+        Word('amount of effort (best, worst, ...)', 'best',      none),
+        Word('thing',                               'billows',   none),
+        Word('adjective',                           'smooth',    none),
+        Word('another adjective',                   'bright',    none),
+        Word('last adjective',                      'odd',       none),
+        Word('position (start, middle, end, ...)',  'middle',    none),
     ],
         t => `
-The ${t.big_thing} was shining on the sea,
-Shining with all his might:
-He did his very best to make
-The billows smooth and bright--
-And this was odd, because it was
-The middle of the night.
+The ${t.big_thing} was ${t.shining} on the sea,
+${title_case(t.shining)} with all his might:
+He did his very ${t.best} to make
+The ${t.billows} ${t.smooth} and ${t.bright}--
+And this was ${t.odd}, because it was
+The ${t.middle} of the night.
 `),
 
     Story([
