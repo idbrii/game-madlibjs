@@ -15,6 +15,18 @@ to.a_an = function(str) {
     return `${article} ${str}`;
 }
 
+const count_upper = function(str) {
+    return str.length - str.replace(/[A-Z]/g, '').length;  
+}
+
+// Only makes lower if only the first letter was lower (so The Queen retains upper).
+to.initial_lower = function(str) {
+    if (count_upper(str) > 1) {
+        return str;
+    }
+    return str.toLowerCase();
+}
+
 to.title_case = function(str) {
     return str.replace(
         /\w\S*/g,

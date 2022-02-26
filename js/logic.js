@@ -20,7 +20,7 @@ const showFinal = function () {
 const storeResponse = function() {
     const w = story.words[prompt_index];
     const val = $('input').val();
-    responses[w.name] = to.none(val);
+    responses[w.name] = to.initial_lower(val);
     const has_content = val.length > 0
     if (has_content) {
         $('input').val('');
