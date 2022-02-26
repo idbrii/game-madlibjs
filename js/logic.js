@@ -16,12 +16,12 @@ const title_case = function(str) {
 }
 
 var prompts = [
-    Word('noun',           'wet_thing',   none),
-    Word('plural noun',    'dry_thing',   none),
-    Word('verb',           'to_cloud',    none),
-    Word('place',          'where_cloud', none),
-    Word('plural animal',  'flyers',      none),
-    Word('relative place', 'where_flyer', none),
+    Word('noun',                          'wet_thing',   none),
+    Word('plural noun',                   'dry_thing',   none),
+    Word('verb',                          'to_cloud',    none),
+    Word('generic place (beach)',         'where_cloud', none),
+    Word('plural animal',                 'flyers',      none),
+    Word('relative place (above, below)', 'where_flyer', none),
 ];
 
 const text_fn = t => `
@@ -35,6 +35,12 @@ const text_fn = t => `
 <br/>
 `;
 
+// Ideas for how to make a good madlib.
+// * silly words
+// * insult a kid says
+// * specific body part
+// * specific length of time that will be funny when inappropriate
+// * common phrases perverted by a substituted word
 
 
 
