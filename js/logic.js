@@ -166,3 +166,5 @@ const runMadlibs = function() {
     prompt_index = -1;
     nextPrompt();
 }
+
+export { runMadlibs, }
