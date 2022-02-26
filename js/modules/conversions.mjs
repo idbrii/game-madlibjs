@@ -27,6 +27,13 @@ to.initial_lower = function(str) {
     return str.toLowerCase();
 }
 
+to.initial_upper = function(str) {
+    if (str.length < 2) {
+        return str;
+    }
+    return str.charAt(0).toUpperCase() + str.substr(1).toLowerCase();
+}
+
 to.title_case = function(str) {
     return str.replace(
         /\w\S*/g,

@@ -9,10 +9,12 @@ import { to, } from './modules/conversions.mjs';
 // * common phrases perverted by a substituted word
 
 const generic_adjective = 'a word describing something (green)';
-const generic_job = 'an occupation like janitor, programmer, scientist'
+const generic_color = 'a color of any kind';
+const generic_job = 'an occupation like janitor, programmer, scientist';
 const generic_noun = 'a person, place, or thing';
 const generic_nouns = 'more than one thing (bats, beds, broomsticks)';
 const generic_number = 'a number like one or ten or one million';
+const generic_superlative = 'a word describing something to the extreme (best, biggest, strongest)';
 const generic_theperson = 'a named person (Batman, Santa)';
 const generic_verb = 'an action';
 const generic_verbed = 'an action that occurred in the past, probably ending with "ed"';
@@ -98,6 +100,86 @@ Do you suppose," the ${to.title_case(t.walrus)} said,
 "I doubt it," said the ${to.title_case(t.carpenter)},
 And shed a bitter ${t.tear}.
 `),
+
+    Story("Lunch", [
+        Word('plural animal',            'multiple of an animal (dogs, birds)',                       'oysters'),
+        Word('adjective',                generic_adjective,                                           'boiling'),
+        Word('food',                     'something to eat',                                          'bread'),
+        Word('something you run out of', 'something you have but then have none',                     'breath'),
+        Word('plural vegetable',         'some kind of vegatables (carrots)',                         'cabbages'),
+        Word('job',                      generic_job,                                                 'carpenter'),
+        Word('talking verb',             'an action for talking to someone else (shout, chat, talk)', 'chat'),
+        Word('adjective',                generic_adjective,                                           'fat'),
+        Word('eating verb',              'an action of how you consume food (drink, eat, gulp)',      'feed'),
+        Word('adjective',                generic_adjective,                                           'good'),
+        Word('plural noun',              generic_nouns,                                               'kings'),
+        Word('plural noun',              generic_nouns,                                               'sealingwax'),
+        Word('generic place',            'a name for a kind of place (beach)',                        'sea'),
+        Word('plural noun',              generic_nouns,                                               'ships'),
+        Word('another plural noun',      generic_nouns,                                               'shoes'),
+        Word('talking verb',             'an action for talking to someone else (shout, chat, talk)', 'talk'),
+        Word('condiment',                'something you put on food',                                 'vinegar'),
+        Word('animal',                   'a kind of animal',                                          'walrus'),
+        Word('plural noun',              generic_nouns,                                               'wings'),
+        Word('condiment',                'something you put on food',                                 'pepper'),
+        Word('color',                    generic_color,                                               'blue'),
+        Word('noun',                     generic_noun,                                                'kindness'),
+        Word('adjective',                generic_adjective,                                           'dismal'),
+        Word('another adjective',        generic_adjective,                                           'fine'),
+        Word('sounds a person makes',    'word for a kind of sound people make',                      'sobs'),
+        Word('superlative adjective',    generic_superlative,                                         'largest'),
+        Word('noun',                     generic_noun,                                                'handkerchief'),
+        Word('adjective',                generic_adjective,                                           'streaming'),
+        Word('another adjective',        generic_adjective,                                           'trotting'),
+        Word('last adjective',           generic_adjective,                                           'odd'),
+        Word('eating verb',              'an action of how you consume food (drink, eat, gulp)',      'eaten'),
+    ],
+        t => `
+"The time has come," the ${to.title_case(t.walrus)} said,
+"To ${t.talk} of many things:
+Of ${t.shoes}--and ${t.ships}--and ${t.sealingwax}--
+Of ${t.cabbages}--and ${t.kings}--
+And why the ${t.sea} is ${t.boiling}--
+And whether pigs have ${t.wings}."
+
+"But wait a bit," the ${t.oysters} cried,
+"Before we have our ${t.chat};
+For some of us are out of ${t.breath},
+And all of us are ${t.fat}!"
+"No hurry!" said the ${to.title_case(t.carpenter)}.
+They thanked him much for that.
+
+"A loaf of ${t.bread}," the ${to.title_case(t.walrus)} said,
+"Is what we chiefly need:
+${to.initial_upper(t.pepper)} and ${t.vinegar} besides
+Are very ${t.good} indeed--
+Now if you're ready, ${to.title_case(t.oysters)} dear,
+We can begin to ${t.feed}."
+
+"But not on us!" the ${to.title_case(t.oysters)} cried,
+Turning a little ${t.blue}.
+"After such ${t.kindness}, that would be
+A ${t.dismal} thing to do!"
+"The night is ${t.fine}," the ${to.title_case(t.walrus)} said.
+"Do you admire the view?
+
+"I weep for you," the ${to.title_case(t.walrus)} said:
+"I deeply sympathize."
+With ${t.sobs} and tears he sorted out
+Those of the ${t.largest} size,
+Holding his ${t.handkerchief}
+Before his ${t.streaming} eyes.
+
+"O ${to.title_case(t.oysters)}," said the ${to.title_case(t.carpenter)},
+"You've had a pleasant run!
+Shall we be ${t.trotting} home again?'
+But answer came there none--
+And this was scarcely ${t.odd}, because
+They'd ${t.eaten} every one.
+
+
+`),
+
 
 ];
 
