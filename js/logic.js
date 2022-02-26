@@ -38,6 +38,18 @@ const Story = function(words, text_fn) {
 
 const stories = [
     Story([
+        Word('specific person', 'someone', none),
+        Word('another specific person', 'another', none),
+        Word('job plural', 'police', none),
+        Word('past tense action on something', 'arrested', none),
+    ],
+        t => `
+There once was ${t.someone} and the ${t.someone} was being mean to ${t.another}.
+Then the ${t.police} came. And they ${t.arrested} both ${t.someone} and ${t.another}.
+`),
+
+
+    Story([
         Word('large object',                        'big_thing', none),
         Word('verb ending with "ing"',              'shining',   none),
         Word('amount of effort (best, worst, ...)', 'best',      none),
