@@ -7,12 +7,12 @@ const Word = function(kind, name, convert) {
 }
 const none = function(str) { return str; }
 const title_case = function(str) {
-  return str.replace(
-    /\w\S*/g,
-    function(txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    }
-  );
+    return str.replace(
+        /\w\S*/g,
+        function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
 }
 
 var prompts = [
