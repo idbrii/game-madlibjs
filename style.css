@@ -1,9 +1,9 @@
 :root {
-    --color-text:#F3F4F2;
-    --color-bg:#96B4CD;
-    --color-bgcomplete:#A19FAD;
-    --color-highlight:#BA466B;
-    --color-lowlight:#A46446;
+    --color-text:#D6DDCF;
+    --color-bg:#75998F;
+    --color-bgcomplete:#46423F;
+    --color-texthighlight:#CAC8D4;
+    --color-bright:#C75C43;
 }
 
 body {
@@ -41,7 +41,7 @@ input {
 
 .title-story {
 	background: var(--color-bgcomplete);
-	color: var(--color-text);
+	color: var(--color-texthighlight);
 	font-family: 'Mukta'; 
 	font-weight: bold;
 	margin: 10px;
