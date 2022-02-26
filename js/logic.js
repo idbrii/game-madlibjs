@@ -29,15 +29,16 @@ const title_case = function(str) {
     );
 }
 
-const Story = function(words, text_fn) {
+const Story = function(title, words, text_fn) {
     return {
+        title: title,
         words: words,
         text_fn: text_fn,
     };
 }
 
 const stories = [
-    Story([
+    Story("Appearance", [
         Word('specific person', 'someone', none),
         Word('another specific person', 'another', none),
         Word('job plural', 'police', none),
@@ -49,7 +50,7 @@ Then the ${t.police} came. And they ${t.arrested} both ${t.someone} and ${t.anot
 `),
 
 
-    Story([
+    Story("On the Sea", [
         Word('large object',                        'big_thing', none),
         Word('verb ending with "ing"',              'shining',   none),
         Word('amount of effort (best, worst, ...)', 'best',      none),
@@ -68,7 +69,7 @@ And this was ${t.odd}, because it was
 The ${t.middle} of the night.
 `),
 
-    Story([
+    Story("Extremes", [
         Word('noun',                          'wet_thing',   none),
         Word('plural noun',                   'dry_thing',   none),
         Word('verb',                          'to_cloud',    none),
@@ -86,7 +87,7 @@ There were no ${t.flyers} to fly.
 `),
 
 
-    Story([
+    Story("The Lamenters", [
         Word('animal', 'Walrus', none),
         Word('job', 'Carpenter', none),
         Word('movement verb (ending with "ing")', 'walking', none),
@@ -156,7 +157,7 @@ const nextPrompt = function() {
     prompt_index += 1;
     if (prompt_index < story.words.length) {
         const w = story.words[prompt_index];
-        $('.requirement').html("Provide "+ a_an(w.kind));
+        $('.requirement').html("Input "+ a_an(w.kind));
     }
     else {
         showFinal();
@@ -190,6 +191,7 @@ const runMadlibs = function() {
 
     // Immediately show first prompt
     prompt_index = -1;
+    $('.title').html(story.title);
     nextPrompt();
 }
 
