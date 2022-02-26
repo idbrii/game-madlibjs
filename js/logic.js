@@ -76,7 +76,6 @@ var story = null;
 const showFinal = function () {
     $('.prompt').hide();
     var str = story.text_fn(responses);
-    str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
     str += '<br/>'
 
     $('.story').html(str);
