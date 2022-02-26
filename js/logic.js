@@ -116,6 +116,7 @@ const showFinal = function () {
     var str = story.text_fn(responses);
     str += '<br/>'
 
+    $('.title').toggleClass('title-story');
     $('.story').html(str);
     $('.story').show();
 }
