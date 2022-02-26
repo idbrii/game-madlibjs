@@ -69,8 +69,8 @@ There were no ${t.flyers} to fly.
 
 
     Story("The Lamenters", [
-        Word('animal',                          'a kind of animal',                                        'Walrus'),
-        Word('job',                             generic_job,                                               'Carpenter'),
+        Word('animal',                          'a kind of animal',                                        'walrus'),
+        Word('job',                             generic_job,                                               'carpenter'),
         Word('movement verb ending with "ing"', 'walking, jumping, leaping',                               'walking'),
         Word('emotional past-tense verb',       'burbled, grinned',                                        'wept'),
         Word('plural or unquantified noun',     'generic_nouns',                                           'sand'),
@@ -85,7 +85,7 @@ There were no ${t.flyers} to fly.
         Word('noun that touches the body',      generic_noun,                                              'tear'),
     ],
         t => `
-The ${t.Walrus} and the ${t.Carpenter}
+The ${to.title_case(t.walrus)} and the ${to.title_case(t.carpenter)}
 Were ${t.walking} close at hand;
 They ${t.wept} like anything to see
 Such quantities of ${t.sand}:
@@ -93,9 +93,9 @@ Such quantities of ${t.sand}:
 They said, "it would be ${t.grand}!"
 "If ${t.seven} ${t.maids} with ${t.sevenagain} ${t.mops}
 Swept it for half a ${t.year}.
-Do you suppose," the ${t.Walrus} said,
+Do you suppose," the ${to.title_case(t.walrus)} said,
 "That they could get it ${t.clear}?"
-"I doubt it," said the ${t.Carpenter},
+"I doubt it," said the ${to.title_case(t.carpenter)},
 And shed a bitter ${t.tear}.
 `),
 
