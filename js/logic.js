@@ -1,10 +1,9 @@
 import { to, } from './modules/conversions.mjs';
 
-const Word = function(kind, name, convert) {
+const Word = function(kind, name) {
     return {
         kind: kind,
         name: name,
-        convert: convert,
     };
 }
 
@@ -18,10 +17,10 @@ const Story = function(title, words, text_fn) {
 
 const stories = [
     Story("Appearance", [
-        Word('specific person', 'someone', to.none),
-        Word('another specific person', 'another', to.none),
-        Word('job plural', 'police', to.none),
-        Word('past tense action on something', 'arrested', to.none),
+        Word('specific person', 'someone'),
+        Word('another specific person', 'another'),
+        Word('job plural', 'police'),
+        Word('past tense action on something', 'arrested'),
     ],
         t => `
 There once was ${t.someone} and the ${t.someone} was being mean to ${t.another}.
@@ -30,18 +29,18 @@ Then the ${t.police} came. And they ${t.arrested} both ${t.someone} and ${t.anot
 
 
     Story("On the Sea", [
-        Word('large object',                        'big_thing', to.none),
-        Word('verb ending with "ing"',              'shining',   to.none),
-        Word('amount of effort (best, worst, ...)', 'best',      to.none),
-        Word('thing',                               'billows',   to.none),
-        Word('adjective',                           'smooth',    to.none),
-        Word('another adjective',                   'bright',    to.none),
-        Word('last adjective',                      'odd',       to.none),
-        Word('position (start, middle, end, ...)',  'middle',    to.none),
+        Word('large object',                        'big_thing'),
+        Word('verb ending with "ing"',              'shining'),
+        Word('amount of effort (best, worst, ...)', 'best'),
+        Word('thing',                               'billows'),
+        Word('adjective',                           'smooth'),
+        Word('another adjective',                   'bright'),
+        Word('last adjective',                      'odd'),
+        Word('position (start, middle, end, ...)',  'middle'),
     ],
         t => `
 The ${t.big_thing} was ${t.shining} on the sea,
-${title_case(t.shining)} with all his might:
+${to.title_case(t.shining)} with all his might:
 He did his very ${t.best} to make
 The ${t.billows} ${t.smooth} and ${t.bright}--
 And this was ${t.odd}, because it was
@@ -49,12 +48,12 @@ The ${t.middle} of the night.
 `),
 
     Story("Extremes", [
-        Word('noun',                          'wet_thing',   to.none),
-        Word('plural noun',                   'dry_thing',   to.none),
-        Word('verb',                          'to_cloud',    to.none),
-        Word('generic place (beach)',         'where_cloud', to.none),
-        Word('plural animal',                 'flyers',      to.none),
-        Word('relative place (above, below)', 'where_flyer', to.none),
+        Word('noun',                          'wet_thing'),
+        Word('plural noun',                   'dry_thing'),
+        Word('verb',                          'to_cloud'),
+        Word('generic place (beach)',         'where_cloud'),
+        Word('plural animal',                 'flyers'),
+        Word('relative place (above, below)', 'where_flyer'),
     ],
         t => `
 The ${t.wet_thing} was wet as wet could be,
@@ -67,20 +66,20 @@ There were no ${t.flyers} to fly.
 
 
     Story("The Lamenters", [
-        Word('animal', 'Walrus', to.none),
-        Word('job', 'Carpenter', to.none),
-        Word('movement verb (ending with "ing")', 'walking', to.none),
-        Word('emotional past-tense verb (burbled, grinned)', 'wept', to.none),
-        Word('plural or unquantified noun', 'sand', to.none),
-        Word('past tense verb', 'cleared', to.none),
-        Word('adjective', 'grand', to.none),
-        Word('count (whole number)', 'seven', to.none),
-        Word('plural job', 'maids', to.none),
-        Word('number', 'sevenagain', to.none),
-        Word('plural tool', 'mops', to.none),
-        Word('time measurement', 'year', to.none),
-        Word('adjective', 'clear', to.none),
-        Word('noun that touches the body', 'tear', to.none),
+        Word('animal', 'Walrus'),
+        Word('job', 'Carpenter'),
+        Word('movement verb (ending with "ing")', 'walking'),
+        Word('emotional past-tense verb (burbled, grinned)', 'wept'),
+        Word('plural or unquantified noun', 'sand'),
+        Word('past tense verb', 'cleared'),
+        Word('adjective', 'grand'),
+        Word('count (whole number)', 'seven'),
+        Word('plural job', 'maids'),
+        Word('number', 'sevenagain'),
+        Word('plural tool', 'mops'),
+        Word('time measurement', 'year'),
+        Word('adjective', 'clear'),
+        Word('noun that touches the body', 'tear'),
     ],
         t => `
 The ${t.Walrus} and the ${t.Carpenter}
