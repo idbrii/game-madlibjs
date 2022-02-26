@@ -44,14 +44,12 @@ The middle of the night.
         Word('relative place (above, below)', 'where_flyer', none),
     ],
         t => `
-<br/> The ${t.wet_thing} was wet as wet could be,
-<br/> The ${t.dry_thing} were dry as dry.
-<br/> You could not ${t.to_cloud} a cloud, because
-<br/> No cloud was in the ${t.where_cloud}:
-<br/> No ${t.flyers} were flying ${t.where_flyer}--
-<br/> There were no ${t.flyers} to fly.
-<br/>
-<br/>
+The ${t.wet_thing} was wet as wet could be,
+The ${t.dry_thing} were dry as dry.
+You could not ${t.to_cloud} a cloud, because
+No cloud was in the ${t.where_cloud}:
+No ${t.flyers} were flying ${t.where_flyer}--
+There were no ${t.flyers} to fly.
 `),
 ];
 
@@ -70,7 +68,9 @@ var story = null;
 
 const showFinal = function () {
     $('.prompt').hide();
-    const str = story.text_fn(responses);
+    var str = story.text_fn(responses);
+    str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    str += '<br/>'
 
     $('.story').html(str);
     $('.story').show();
