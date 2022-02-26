@@ -84,7 +84,7 @@ There were no ${t.flyers} to fly.
         Word('plural tool',                     'a thing you use to do something',                         'mops'),
         Word('measurement of time',             'a word to describe a period of time (year, millisecond)', 'year'),
         Word('adjective',                       generic_adjective,                                         'clear'),
-        Word('noun that touches the body',      generic_noun,                                              'tear'),
+        Word('taste adjective',                 'a word describing how something tastes',                  'bitter'),
     ],
         t => `
 The ${to.title_case(t.walrus)} and the ${to.title_case(t.carpenter)}
@@ -98,7 +98,7 @@ Swept it for half a ${t.year}.
 Do you suppose," the ${to.title_case(t.walrus)} said,
 "That they could get it ${t.clear}?"
 "I doubt it," said the ${to.title_case(t.carpenter)},
-And shed a bitter ${t.tear}.
+And shed a ${t.bitter} tear.
 `),
 
     Story("Lunch", [
