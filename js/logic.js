@@ -58,6 +58,39 @@ No cloud was in the ${t.where_cloud}:
 No ${t.flyers} were flying ${t.where_flyer}--
 There were no ${t.flyers} to fly.
 `),
+
+
+    Story([
+        Word('animal', 'Walrus', none),
+        Word('job', 'Carpenter', none),
+        Word('movement verb (ending with "ing")', 'walking', none),
+        Word('emotional past-tense verb (burbled, grinned)', 'wept', none),
+        Word('plural or unquantified noun', 'sand', none),
+        Word('past tense verb', 'cleared', none),
+        Word('adjective', 'grand', none),
+        Word('count (whole number)', 'seven', none),
+        Word('plural job', 'maids', none),
+        Word('number', 'sevenagain', none),
+        Word('plural tool', 'mops', none),
+        Word('time measurement', 'year', none),
+        Word('adjective', 'clear', none),
+        Word('noun that touches the body', 'tear', none),
+    ],
+        t => `
+The ${t.Walrus} and the ${t.Carpenter}
+Were ${t.walking} close at hand;
+They ${t.wept} like anything to see
+Such quantities of ${t.sand}:
+"If this were only ${t.cleared} away,"
+They said, "it would be ${t.grand}!"
+"If ${t.seven} ${t.maids} with ${t.sevenmore} ${t.mops}
+Swept it for half a ${t.year}.
+Do you suppose," the ${t.Walrus} said,
+"That they could get it ${t.clear}?"
+"I doubt it," said the ${t.Carpenter},
+And shed a bitter ${t.tear}.
+`),
+
 ];
 
 // Ideas for how to make a good madlib.
