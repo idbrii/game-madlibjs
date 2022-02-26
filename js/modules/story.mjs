@@ -1,7 +1,8 @@
 
-export const Word = function(kind, name) {
+export const Word = function(kind, hint, name) {
     return {
         kind: kind,
+        hint: hint,
         name: name,
     };
 }

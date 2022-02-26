@@ -21,6 +21,10 @@ body {
 .prompt {
 	font-size: 30px;
 }
+.hint {
+	font-size: 15px;
+	font-style: italic;
+}
 button {
 	margin: 20px;
 }

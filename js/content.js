@@ -8,13 +8,22 @@ import { to, } from './modules/conversions.mjs';
 // * specific length of time that will be funny when inappropriate
 // * common phrases perverted by a substituted word
 
+const generic_adjective = 'a word describing something (green)';
+const generic_job = 'an occupation like janitor, programmer, scientist'
+const generic_noun = 'a person, place, or thing';
+const generic_nouns = 'more than one thing (bats, beds, broomsticks)';
+const generic_number = 'a number like one or ten or one million';
+const generic_theperson = 'a named person (Batman, Santa)';
+const generic_verb = 'an action';
+const generic_verbed = 'an action that occurred in the past, probably ending with "ed"';
+
 const stories = [
 
     Story("Appearance", [
-        Word('specific person', 'someone'),
-        Word('another specific person', 'another'),
-        Word('job plural', 'police'),
-        Word('past tense action on something', 'arrested'),
+        Word('specific person',                generic_theperson, 'someone'),
+        Word('another specific person',        generic_theperson, 'another'),
+        Word('job plural',                     generic_job,       'police'),
+        Word('past tense action on something', generic_verbed,    'arrested'),
     ],
         t => `
 There once was ${t.someone} and the ${t.someone} was being mean to ${t.another}.
@@ -23,14 +32,14 @@ Then the ${t.police} came. And they ${t.arrested} both ${t.someone} and ${t.anot
 
 
     Story("On the Sea", [
-        Word('large object',                        'big_thing'),
-        Word('verb ending with "ing"',              'shining'),
-        Word('amount of effort (best, worst, ...)', 'best'),
-        Word('thing',                               'billows'),
-        Word('adjective',                           'smooth'),
-        Word('another adjective',                   'bright'),
-        Word('last adjective',                      'odd'),
-        Word('position (start, middle, end, ...)',  'middle'),
+        Word('large object',           'the biggest thing you can think of', 'big_thing'),
+        Word('verb ending with "ing"', 'running, crying, melting',           'shining'),
+        Word('amount of effort',       'best, worst, ...',                   'best'),
+        Word('thing',                  'a noun',                             'billows'),
+        Word('adjective',              generic_adjective,                    'smooth'),
+        Word('another adjective',      generic_adjective,                    'bright'),
+        Word('last adjective',         generic_adjective,                    'odd'),
+        Word('position',               'start, middle, end, ...',            'middle'),
     ],
         t => `
 The ${t.big_thing} was ${t.shining} on the sea,
@@ -42,12 +51,12 @@ The ${t.middle} of the night.
 `),
 
     Story("Extremes", [
-        Word('noun',                          'wet_thing'),
-        Word('plural noun',                   'dry_thing'),
-        Word('verb',                          'to_cloud'),
-        Word('generic place (beach)',         'where_cloud'),
-        Word('plural animal',                 'flyers'),
-        Word('relative place (above, below)', 'where_flyer'),
+        Word('noun',           generic_noun,                                       'wet_thing'),
+        Word('plural noun',    generic_nouns,                                      'dry_thing'),
+        Word('verb',           generic_verb,                                       'to_cloud'),
+        Word('generic place',  'a name for a kind of place (beach)',               'where_cloud'),
+        Word('plural animal',  'an animal, but more than one (birds, bats, ants)', 'flyers'),
+        Word('relative place', 'above, below',                                     'where_flyer'),
     ],
         t => `
 The ${t.wet_thing} was wet as wet could be,
@@ -60,20 +69,20 @@ There were no ${t.flyers} to fly.
 
 
     Story("The Lamenters", [
-        Word('animal', 'Walrus'),
-        Word('job', 'Carpenter'),
-        Word('movement verb (ending with "ing")', 'walking'),
-        Word('emotional past-tense verb (burbled, grinned)', 'wept'),
-        Word('plural or unquantified noun', 'sand'),
-        Word('past tense verb', 'cleared'),
-        Word('adjective', 'grand'),
-        Word('count (whole number)', 'seven'),
-        Word('plural job', 'maids'),
-        Word('number', 'sevenagain'),
-        Word('plural tool', 'mops'),
-        Word('time measurement', 'year'),
-        Word('adjective', 'clear'),
-        Word('noun that touches the body', 'tear'),
+        Word('animal',                          'a kind of animal',                                        'Walrus'),
+        Word('job',                             generic_job,                                               'Carpenter'),
+        Word('movement verb ending with "ing"', 'walking, jumping, leaping',                               'walking'),
+        Word('emotional past-tense verb',       'burbled, grinned',                                        'wept'),
+        Word('plural or unquantified noun',     'generic_nouns',                                           'sand'),
+        Word('past tense verb',                 generic_verbed,                                            'cleared'),
+        Word('adjective',                       generic_adjective,                                         'grand'),
+        Word('count',                           'whole number',                                            'seven'),
+        Word('plural job',                      'an occupation like janitors, programmers, scientists',    'maids'),
+        Word('number',                          generic_number,                                            'sevenagain'),
+        Word('plural tool',                     'a thing you use to do something',                         'mops'),
+        Word('measurement of time',             'a word to describe a period of time (year, millisecond)', 'year'),
+        Word('adjective',                       generic_adjective,                                         'clear'),
+        Word('noun that touches the body',      generic_noun,                                              'tear'),
     ],
         t => `
 The ${t.Walrus} and the ${t.Carpenter}

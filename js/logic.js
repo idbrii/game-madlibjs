@@ -33,6 +33,7 @@ const nextPrompt = function() {
     if (prompt_index < story.words.length) {
         const w = story.words[prompt_index];
         $('.requirement').html("Input "+ to.a_an(w.kind));
+        $('.hint').html(w.hint);
     }
     else {
         showFinal();
