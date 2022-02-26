@@ -15,16 +15,35 @@ const title_case = function(str) {
     );
 }
 
-var prompts = [
-    Word('noun',                          'wet_thing',   none),
-    Word('plural noun',                   'dry_thing',   none),
-    Word('verb',                          'to_cloud',    none),
-    Word('generic place (beach)',         'where_cloud', none),
-    Word('plural animal',                 'flyers',      none),
-    Word('relative place (above, below)', 'where_flyer', none),
-];
+const Story = function(words, text_fn) {
+    return {
+        words: words,
+        text_fn: text_fn,
+    };
+}
 
-const text_fn = t => `
+const stories = [
+    Story([
+        Word('large object',                          'big_thing',   none),
+    ],
+        t => `
+The ${t.big_thing} was shining on the sea,
+Shining with all his might:
+He did his very best to make
+The billows smooth and bright--
+And this was odd, because it was
+The middle of the night.
+`),
+
+    Story([
+        Word('noun',                          'wet_thing',   none),
+        Word('plural noun',                   'dry_thing',   none),
+        Word('verb',                          'to_cloud',    none),
+        Word('generic place (beach)',         'where_cloud', none),
+        Word('plural animal',                 'flyers',      none),
+        Word('relative place (above, below)', 'where_flyer', none),
+    ],
+        t => `
 <br/> The ${t.wet_thing} was wet as wet could be,
 <br/> The ${t.dry_thing} were dry as dry.
 <br/> You could not ${t.to_cloud} a cloud, because
@@ -33,7 +52,8 @@ const text_fn = t => `
 <br/> There were no ${t.flyers} to fly.
 <br/>
 <br/>
-`;
+`),
+];
 
 // Ideas for how to make a good madlib.
 // * silly words
@@ -46,16 +66,18 @@ const text_fn = t => `
 
 var responses = {};
 var prompt_index = 0;
+var story = null;
 
 const showFinal = function () {
     $('.prompt').hide();
-    const str = text_fn(responses);
+    const str = story.text_fn(responses);
+
     $('.story').html(str);
     $('.story').show();
 }
 
 const storeResponse = function() {
-    const w = prompts[prompt_index];
+    const w = story.words[prompt_index];
     const val = $('input').val();
     responses[w.name] = w.convert(val);
     const has_content = val.length > 0
@@ -67,13 +89,17 @@ const storeResponse = function() {
 
 const nextPrompt = function() {
     prompt_index += 1;
-    if (prompt_index < prompts.length) {
-        const w = prompts[prompt_index];
+    if (prompt_index < story.words.length) {
+        const w = story.words[prompt_index];
         $('.requirement').html("Provide a "+ w.kind);
     }
     else {
         showFinal();
     }
+}
+
+const randomChoice = function(list) {
+    return list[Math.floor(Math.random() * list.length)];
 }
 
 
@@ -94,6 +120,8 @@ const runMadlibs = function() {
         }
     });
     $('.story').hide();
+
+    story = randomChoice(stories);
 
     // Immediately show first prompt
     prompt_index = -1;
