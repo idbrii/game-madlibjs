@@ -97,7 +97,7 @@ They ${t.wept} like anything to see
 Such quantities of ${t.sand}:
 "If this were only ${t.cleared} away,"
 They said, "it would be ${t.grand}!"
-"If ${t.seven} ${t.maids} with ${t.sevenmore} ${t.mops}
+"If ${t.seven} ${t.maids} with ${t.sevenagain} ${t.mops}
 Swept it for half a ${t.year}.
 Do you suppose," the ${t.Walrus} said,
 "That they could get it ${t.clear}?"
