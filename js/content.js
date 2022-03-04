@@ -14,12 +14,30 @@ const generic_job = 'an occupation like janitor, programmer, scientist';
 const generic_noun = 'a person, place, or thing';
 const generic_nouns = 'more than one thing (bats, beds, broomsticks)';
 const generic_number = 'a number like one or ten or one million';
+const generic_person = 'an unnamed person (butler, woman in blue, tall man)';
 const generic_superlative = 'a word describing something to the extreme (best, biggest, strongest)';
 const generic_theperson = 'a named person (Batman, Santa)';
-const generic_verb = 'an action';
+const generic_verb = 'an action in present tense';
 const generic_verbed = 'an action that occurred in the past, probably ending with "ed"';
 
 const stories = [
+
+    Story("Sob Story", [
+        Word('person',                          generic_person,                                       'someone'),
+        Word('movement verb ending with "ing"', 'walking, jumping, leaping',                          'walking'),
+        Word('past tense verb',                 generic_verbed,                                       'fell'),
+        Word('body part',                       'some part of your body',                             'knee'),
+        Word('nice place',                      'a place that makes you feel better',                 'hospital'),
+        Word('past tense medical verb',         'something a doctor did to you',                      'surgery'),
+        Word('sad past tense verb',             'a sad thing that happened to you (may end with -ed)', 'died'),
+    ],
+        t => `
+${to.initial_upper(to.a_an(t.someone))} was ${t.walking} down the street.
+He ${t.fell}. He broke his ${t.knee}.
+He went to the ${t.hospital}.
+He got ${t.surgery}, then he ${t.died}.
+`),
+
 
     Story("Appearance", [
         Word('specific person',                generic_theperson, 'someone'),
@@ -176,8 +194,6 @@ Shall we be ${t.trotting} home again?'
 But answer came there none--
 And this was scarcely ${t.odd}, because
 They'd ${t.eaten} every one.
-
-
 `),
 
 
